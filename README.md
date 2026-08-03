@@ -1,9 +1,11 @@
 # ¡Hola! Soy Oliver Martinez Hodgson 👋
 
+🌐 **Portafolio en línea:** [olivermartinezh.github.io](https://olivermartinezh.github.io/)
+
 ### **Senior Full Stack Developer** especializado en arquitecturas corporativas y soluciones de software escalables.
 
 📌 **Contacto Rápido:**
-*   **LinkedIn:** [://linkedin.com](https://www.://linkedin.com/)
+*   **LinkedIn:** [linkedin.com](https://www.linkedin.com/)
 *   **Correo Electrónico:** [oliver.martinez@gmail.com](mailto:oliver.martinez@gmail.com)
 
 ---

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portafolio de Oliver Martinez Hodgson — Senior Full Stack Developer especializado en .NET (C#), Java y arquitecturas modernas.">
+  <title>Oliver Martinez Hodgson — Senior Full Stack Developer</title>
+  <style>
+    :root {
+      --bg: #0f1410;
+      --bg-soft: #161d18;
+      --card: #1b241d;
+      --border: #26332a;
+      --text: #e8efe9;
+      --muted: #9db0a3;
+      --brand: #3aab72;
+      --brand-dark: #2f9463;
+      --brand-bright: #6fd3a0;
+      --radius: 14px;
+      --maxw: 980px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--brand-bright); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+    section { padding: 56px 0; }
+    section + section { border-top: 1px solid var(--border); }
+    h2 {
+      font-size: 1.35rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--brand);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h2::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+
+    /* Hero */
+    header.hero {
+      padding: 72px 0 56px;
+      background:
+        radial-gradient(900px 400px at 80% -10%, rgba(58,171,114,.18), transparent 60%),
+        var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .hero h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.15; }
+    .hero h1 .accent { color: var(--brand); }
+    .hero .role {
+      margin-top: 10px; font-size: 1.1rem; color: var(--muted); font-weight: 500;
+    }
+    .hero .contacts { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--border); background: var(--card);
+      padding: 8px 14px; border-radius: 999px; font-size: .9rem;
+      transition: border-color .2s, color .2s;
+    }
+    .chip:hover { border-color: var(--brand); color: var(--brand-bright); text-decoration: none; }
+
+    /* About */
+    .about p { color: var(--text); max-width: 70ch; }
+    .about ul { margin-top: 14px; list-style: none; }
+    .about li { padding: 4px 0; color: var(--text); }
+    .about li::before { content: "▸ "; color: var(--brand); }
+
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .skill-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 18px;
+    }
+    .skill-card h3 { font-size: .95rem; color: var(--brand); margin-bottom: 10px; }
+    .skill-card ul { list-style: none; }
+    .skill-card li { font-size: .9rem; color: var(--text); padding: 3px 0; }
+    .skill-card code {
+      background: var(--bg-soft); border: 1px solid var(--border);
+      border-radius: 6px; padding: 2px 7px; font-size: .85rem; color: var(--brand-bright);
+    }
+
+    /* Projects */
+    .project-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+      transition: border-color .2s, transform .2s;
+    }
+    .project-card:hover { border-color: var(--brand); transform: translateY(-3px); }
+    .project-card .shot {
+      display: block; width: 100%; border-bottom: 1px solid var(--border);
+      background: var(--bg-soft);
+    }
+    .project-card .body { padding: 22px; }
+    .project-card h3 { font-size: 1.15rem; color: var(--text); }
+    .project-card h3 a { color: inherit; }
+    .project-card p { margin: 10px 0 14px; color: var(--muted); font-size: .95rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      background: rgba(58,171,114,.12); color: var(--brand-bright);
+      border: 1px solid rgba(58,171,114,.35);
+      border-radius: 6px; padding: 3px 10px; font-size: .78rem;
+    }
+    .project-cta {
+      display: inline-block; margin-top: 16px;
+      background: var(--brand-dark); color: #fff;
+      padding: 9px 18px; border-radius: 8px; font-weight: 600; font-size: .9rem;
+      transition: background .2s;
+    }
+    .project-cta:hover { background: var(--brand); text-decoration: none; }
+
+    /* Experience */
+    .exp-item { padding: 16px 0; border-bottom: 1px dashed var(--border); }
+    .exp-item:last-child { border-bottom: 0; }
+    .exp-item h3 { font-size: 1.05rem; }
+    .exp-item .company { color: var(--brand-bright); }
+    .exp-item .desc { color: var(--muted); font-size: .92rem; margin-top: 6px; }
+
+    /* Education */
+    .edu { display: flex; flex-wrap: wrap; gap: 12px; }
+    .edu .degree { color: var(--text); font-weight: 600; }
+    .edu .school { color: var(--muted); font-size: .92rem; }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 32px 0 44px;
+      color: var(--muted); text-align: center; font-size: .88rem;
+    }
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 1.8rem; }
+      header.hero { padding: 48px 0 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <h1>¡Hola! Soy <span class="accent">Oliver Martinez Hodgson</span> 👋</h1>
+      <p class="role"><strong>Senior Full Stack Developer</strong> especializado en arquitecturas corporativas y soluciones de software escalables.</p>
+      <div class="contacts">
+        <a class="chip" href="https://www.linkedin.com/" target="_blank" rel="noopener">🔗 LinkedIn</a>
+        <a class="chip" href="mailto:oliver.martinez@gmail.com">✉️ oliver.martinez@gmail.com</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Sobre Mí -->
+    <section id="sobre-mi">
+      <div class="container">
+        <h2>Sobre Mí</h2>
+        <div class="about">
+          <p>Soy <strong>Técnico de Nivel Superior en Programación Computacional e Informática</strong> con amplia trayectoria en el análisis, diseño e implementación de soluciones robustas para empresas líderes en los sectores <strong>bancario, telecomunicaciones, retail y servicios</strong>.</p>
+          <ul>
+            <li>Especialista en desarrollo <strong>Full Stack</strong> con un fuerte enfoque en el ecosistema <strong>.NET (C#)</strong> y <strong>Java</strong>.</li>
+            <li>Apasionado por las arquitecturas modernas (<strong>Hexagonal, BFF</strong>) y la innovación técnica.</li>
+            <li>Actualmente enfocado en prácticas avanzadas de <strong>Spec-Driven Development</strong> utilizando tecnologías de vanguardia como <em>OpenCode</em> y <em>Antigravity</em>.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tecnologías -->
+    <section id="tecnologias">
+      <div class="container">
+        <h2>Tecnologías &amp; Habilidades</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>Backend &amp; Lenguajes</h3>
+            <ul>
+              <li><code>.NET Core / .NET (5, 6, 8, 10)</code></li>
+              <li><code>.NET Framework Legacy (2.0, 3.5, 4.0, 4.6)</code></li>
+              <li><code>C#</code> <code>VB.NET</code> <code>Java (JavaFX)</code> <code>PL-SQL</code></li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Frontend &amp; Mobile</h3>
+            <ul>
+              <li><code>JavaScript</code> <code>Angular</code> <code>Bootstrap</code> <code>jQuery</code></li>
+              <li><code>HTML5</code> <code>CSS3</code> <code>Open XML</code></li>
+              <li><code>Xamarin Forms (Mobile)</code></li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Bases de Datos &amp; ORM</h3>
+            <ul>
+              <li><code>SQL Server (2005 a 2021)</code></li>
+              <li><code>Oracle (10G/11G)</code></li>
+              <li><code>Entity Framework (4, 6 y Core)</code></li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Arquitectura &amp; Metodologías</h3>
+            <ul>
+              <li><code>Células Ágiles (Scrum)</code></li>
+              <li><code>Arquitectura Hexagonal</code> <code>BFF</code></li>
+              <li><code>Spec-Driven Development</code></li>
+              <li><code>Patrones de Diseño (DTO, DAO, Singleton)</code></li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>DevOps &amp; Herramientas</h3>
+            <ul>
+              <li><code>Azure DevOps</code> <code>Git</code> <code>Jira</code> <code>Bitbucket</code> <code>TFS</code></li>
+              <li><code>Postman</code> <code>SoapUI</code> <code>DBeaver</code></li>
+              <li><code>Web Services (SOAP/REST)</code></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="proyectos">
+      <div class="container">
+        <h2>Proyectos</h2>
+        <div class="project-card">
+          <img class="shot" src="assets/screenshots/ok-webptojpg.png"
+               alt="Captura de pantalla de WebP to JPG Converter">
+          <div class="body">
+            <h3><a href="https://github.com/OliverMartinezH/OK_WebpToJpg" target="_blank" rel="noopener">WebP to JPG Converter</a></h3>
+            <p>Aplicación de escritorio para Windows que convierte imágenes WebP a JPG y PNG. Conversión por lotes, drag &amp; drop, control de calidad, redimensionado con bloqueo de proporción y detección automática de WebP animado. Arquitectura en 2 capas con <strong>Result&lt;T&gt;</strong>, patrón Strategy y Factory, MVVM con CommunityToolkit y 130 tests unitarios.</p>
+            <div class="tags">
+              <span class="tag">.NET 10</span>
+              <span class="tag">C#</span>
+              <span class="tag">WinUI 3</span>
+              <span class="tag">ImageSharp</span>
+              <span class="tag">MVVM</span>
+              <span class="tag">Result&lt;T&gt;</span>
+              <span class="tag">xUnit + Moq</span>
+              <span class="tag">Localización EN/ES</span>
+            </div>
+            <a class="project-cta" href="https://github.com/OliverMartinezH/OK_WebpToJpg" target="_blank" rel="noopener">Ver repositorio →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experiencia -->
+    <section id="experiencia">
+      <div class="container">
+        <h2>Experiencia Relevante</h2>
+        <div class="exp-item">
+          <h3>BiT Coco — <span class="company">Programador Full Stack</span></h3>
+          <p class="desc">Liderazgo en el proyecto AFC NEO y diseño de SPs para migraciones masivas hacia Afpnet mediante PL-SQL.</p>
+        </div>
+        <div class="exp-item">
+          <h3>Empresas SB — <span class="company">Desarrollador Frontend</span></h3>
+          <p class="desc">Integración crítica del sistema POS Transbank en entornos Linux OpenSUSE.</p>
+        </div>
+        <div class="exp-item">
+          <h3>Itaú Chile — <span class="company">Frontend Developer Sr</span></h3>
+          <p class="desc">Automatización corporativa con OPEN XML, desarrollo bajo esquemas BFF y Arquitectura Hexagonal en consumo digital.</p>
+        </div>
+        <div class="exp-item">
+          <h3>Tata Consultancy Services (TCS) — <span class="company">Developer</span></h3>
+          <p class="desc">Modernización del ecosistema web transaccional para Turbus y sistemas logísticos SIMCE.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Educación -->
+    <section id="educacion">
+      <div class="container">
+        <h2>Educación</h2>
+        <div class="edu">
+          <span class="degree">🎓 Técnico de Nivel Superior en Programación Computacional e Informática</span>
+          <span class="school">Instituto Profesional CIISA (2000 – 2005)</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      🙏 ¡Gracias por visitar mi perfil! No dudes en revisar <a href="https://github.com/OliverMartinezH" target="_blank" rel="noopener">mis repositorios</a> para conocer más de mi código.<br>
+      © 2026 Oliver Martinez Hodgson
+    </div>
+  </footer>
+
+</body>
+</html>
