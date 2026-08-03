@@ -204,6 +204,9 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 600; letter-spacing: -0
 }
 .project-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); border-color: var(--accent); }
 .project-card .shot { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--surface-2); }
+.shot--dark { display: none; }
+[data-theme="dark"] .shot--dark { display: block; }
+[data-theme="dark"] .shot--light { display: none; }
 .project-card .body { padding: 22px; display: flex; flex-direction: column; flex: 1; }
 .project-card h3 { font-size: 1.15rem; }
 .project-card h3 a { color: var(--text); }
