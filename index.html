@@ -171,8 +171,11 @@
           <span class="kicker">Proyectos</span>
           <h2>Lo que he construido</h2>
         </div>
-        <div class="projects-grid">
-          <article class="project-card reveal">
+        <div class="projects-carousel reveal">
+          <button class="carousel-btn carousel-prev" aria-label="Proyecto anterior">‹</button>
+          <div class="carousel-viewport">
+            <div class="carousel-track" id="projects-track">
+          <article class="project-card carousel-card">
             <img class="shot shot--light" src="assets/screenshots/okk-init-claro.svg" alt="Okk_Init en modo claro">
             <img class="shot shot--dark" src="assets/screenshots/okk-init-oscuro.svg" alt="Okk_Init en modo oscuro">
             <div class="body">
@@ -194,7 +197,7 @@
             </div>
           </article>
 
-          <article class="project-card reveal">
+          <article class="project-card carousel-card">
             <img class="shot shot--light" src="assets/screenshots/ok-webptojpg-claro.jpg" alt="WebP to JPG Converter en modo claro">
             <img class="shot shot--dark" src="assets/screenshots/ok-webptojpg-oscuro.jpg" alt="WebP to JPG Converter en modo oscuro">
             <div class="body">
@@ -215,7 +218,7 @@
             </div>
           </article>
 
-          <article class="project-card reveal">
+          <article class="project-card carousel-card">
             <img class="shot shot--light" src="assets/screenshots/theremin-digital-claro.jpg" alt="Theremin Digital en modo claro">
             <img class="shot shot--dark" src="assets/screenshots/theremin-digital-oscuro.jpg" alt="Theremin Digital en modo oscuro">
             <div class="body">
@@ -240,6 +243,9 @@
               </div>
             </div>
           </article>
+            </div>
+          </div>
+          <button class="carousel-btn carousel-next" aria-label="Siguiente proyecto">›</button>
         </div>
       </div>
     </section>

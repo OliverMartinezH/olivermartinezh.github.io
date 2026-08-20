@@ -79,3 +79,94 @@
   }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
   items.forEach(function (n) { io.observe(n); });
 })();
+
+// ===== Projects carousel (infinite) =====
+(function () {
+  var track = document.getElementById("projects-track");
+  if (!track || track.children.length === 0) return;
+
+  var viewport = track.parentElement;
+  var originals = Array.prototype.slice.call(track.children);
+  var N = originals.length;
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var MS = 500;
+  var current = N - 1;
+  var animating = false;
+
+  // Clones for the infinite loop: prepend last N-1, append first N-1
+  var i, j;
+  for (i = N - 1; i >= 1; i--) {
+    var c = originals[i].cloneNode(true);
+    c.setAttribute("aria-hidden", "true");
+    track.insertBefore(c, track.firstChild);
+  }
+  for (j = 0; j < N - 1; j++) {
+    var d = originals[j].cloneNode(true);
+    d.setAttribute("aria-hidden", "true");
+    track.appendChild(d);
+  }
+
+  var cards = track.children;
+  var len = cards.length;
+
+  function stepWidth() {
+    var card = cards[0];
+    var gap = parseFloat(getComputedStyle(track).gap) || 0;
+    return card.getBoundingClientRect().width + gap;
+  }
+
+  function render(animate) {
+    var cw = cards[0].getBoundingClientRect().width;
+    var center = (viewport.clientWidth - cw) / 2;
+    var offset = center - current * stepWidth();
+    track.style.transition = animate
+      ? "transform " + MS + "ms cubic-bezier(0.4, 0, 0.2, 1)"
+      : "none";
+    track.style.transform = "translate3d(" + offset + "px, 0, 0)";
+  }
+
+  function setActive(animate) {
+    var k;
+    if (animate === false) {
+      for (k = 0; k < len; k++) cards[k].style.transition = "none";
+    }
+    for (k = 0; k < len; k++) cards[k].classList.remove("active");
+    cards[current].classList.add("active");
+    if (animate === false) {
+      void track.offsetWidth;
+      for (k = 0; k < len; k++) cards[k].style.transition = "";
+    }
+  }
+
+  function snap() {
+    var m;
+    if (current >= N - 1 && current <= 2 * N - 2) return;
+    if (current < N - 1) m = current + 1;
+    else m = current - (2 * N - 1);
+    current = N - 1 + m;
+  }
+
+  function go(dir) {
+    if (animating) return;
+    var next = current + dir;
+    if (next < 0 || next >= len) return;
+    animating = true;
+    current = next;
+    render(true);
+    window.setTimeout(function () {
+      snap();
+      render(false);
+      setActive(!reduced);
+      animating = false;
+    }, reduced ? 0 : MS);
+  }
+
+  var prev = document.querySelector(".carousel-prev");
+  var next = document.querySelector(".carousel-next");
+  if (prev) prev.addEventListener("click", function () { go(-1); });
+  if (next) next.addEventListener("click", function () { go(1); });
+  window.addEventListener("resize", function () { render(false); });
+
+  render(false);
+  setActive(!reduced);
+})();
