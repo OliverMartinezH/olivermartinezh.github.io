@@ -58,7 +58,7 @@ Soy **Técnico de Nivel Superior en Programación Computacional e Informática**
 
 ## 💼 Experiencia Relevante (Breve Resumen)
 
-*   **BiT Coco** (*Programador Full Stack*) – Liderazgo en el proyecto AFC NEO y diseño de SPs para migraciones masivas hacia Afpnet mediante PL-SQL.
+*   **BiT Coco** (*Programador Full Stack*) – Participando en el proyecto AFC NEO y diseño de SPs para migraciones masivas hacia Afpnet mediante PL-SQL.
 *   **Empresas SB** (*Desarrollador Frontend*) – Integración crítica del sistema POS Transbank en entornos Linux OpenSUSE.
 *   **Itaú Chile** (*Frontend Developer Sr*) – Automatización corporativa con OPEN XML, desarrollo bajo esquemas BFF y Arquitectura Hexagonal en consumo digital.
 *   **Tata Consultancy Services (TCS)** (*Developer*) – Modernización del ecosistema web transaccional para Turbus y sistemas logísticos SIMCE.
